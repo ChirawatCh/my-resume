@@ -1,0 +1,23 @@
+Chirawat Chitpakdee (Eee) is a versatile professional in AI workflow engineering, specializing in integrating AI solutions with automation processes for cost-efficiency and innovation. He has expertise in performance testing, RPA, and AI deployment, delivering scalable and reliable systems.
+
+PROFESSIONAL EXPERIENCE:
+- Tech Lead Engineer at CP Axtra - Lotus's (2022-present)
+- Digital economy promotion officer at depa (2021-2022)
+- Research assistant at National Nanotechnology Center, NSTDA (2012-2021)
+
+KEY SKILLS:
+- AI and LLM Engineering: Hugging Face, VLLM, Llamaindex
+- Automation and RPA: Python, Power Automate, Robot Framework
+- Performance Testing: Apache JMeter, Grafana K6, Jenkins
+
+RECENT PROJECT:
+Developed an on-premise AI-powered customer service chatbot leveraging RAG workflow with Meta-Llama 3.1 70B FP8 model. Designed secure, scalable architecture integrating OAuth 2.0, Chainlit, MongoDB, Redis, and Qdrant.
+
+EDUCATION:
+- M.Sc., Physical Chemistry, Kasetsart University (2011)
+- B.Sc., Chemistry, Ubon Ratchathani University (2009)
+
+CONTACT:
+Mobile: (+66) 087-400-4666 
+Email: chirawat.ch@ku.th 
+Address: 294/900 IDEO condo Charan Sanitwong 70/2, Bangkok 10700
