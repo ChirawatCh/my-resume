@@ -122,8 +122,8 @@ nav {
 .btn-lets-talk {
   background-image: linear-gradient(
     to right,
-    var(--accent-gradient-start) 0%,
-    var(--accent-gradient-end) 100%
+    #fcc31c 0%,
+    #fcc31c 100%
   );
   color: var(--white-color);
   border: none;
