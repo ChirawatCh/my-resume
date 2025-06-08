@@ -276,6 +276,12 @@ nav {
   color: var(--secondary-text-color);
 }
 
+.article-image {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 1rem;
+}
+
 /* Chatbot styles */
 .chatbot-container {
   position: fixed;

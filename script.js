@@ -20,7 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
     navLinks.forEach(link => {
         link.addEventListener("click", function (e) {
             e.preventDefault();
-            const pageName = this.textContent.toLowerCase().replace(' ', '_');
+            let pageName = this.textContent.toLowerCase().replace(' ', '_');
+            if (this.textContent === 'Articles') {
+                pageName = 'articles';
+            }
             loadContent(pageName);
             navLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
