@@ -20,4 +20,42 @@ EDUCATION:
 CONTACT:
 Mobile: (+66) 087-400-4666 
 Email: chirawat.ch@ku.th 
-Address: 294/900 IDEO condo Charan Sanitwong 70/2, Bangkok 10700
+
+## Relevant Skills and Tools
+
+### AI and LLM Engineer
+* Experienced in developing AI and large language model (LLM) systems for enterprise applications, focusing on question-answering (Q&A) chatbots and automation algorithms.
+* Proficient in leveraging retrieval-augmented generation (RAG) techniques and fine-tuning LLMs for domain-specific knowledge.
+* Continuously researches AI agents (multi-agents) and evaluates emerging AI/LLM technologies, recommending and implementing improvements.
+* **Tools:** Hugging Face, VLLM, Llamaindex 
+
+### Automation and Robotic Process Automation (RPA) Experience
+* Developed robotic automation processes for financial and business processes using Python, Power Automate, and Robot Framework.
+* Resulted in decreasing error rates and manpower and time consumption.
+* Implemented and scheduled robotic processes on cloud flow.
+* **Tools:** Python, Power Automate, Robot Framework.
+
+### Performance Test (Load Testing) Experience
+* Developed scripts and performed performance testing on APIs and front-end websites using Apache JMeter and Grafana K6 tools.
+* Implemented and developed JMeter and K6 scripts into Jenkins for automated load testing and continuous integration and continuous delivery.
+* **Tools:** Apache JMeter, Grafana K6, Jenkins 
+
+## Recent Project: AI-Powered Customer Service Chatbot
+* Developed an on-premise AI-powered customer service chatbot leveraging a RAG (Retrieval-Augmented Generation) workflow with open-source LLM model like Gemma3, LLama-3, Qwen 3, etc.
+* Designed and implemented a secure, scalable architecture integrating OAuth 2.0 (OneLogin) for authentication, Chainlit for the user interface, MongoDB and Redis for chat history management, and Qdrant for vector-based document retrieval.
+* Enabled real-time, context-aware responses by incorporating a text embedding server, delivering accurate and secure domain-specific support within a fully on-premises deployment.
+
+## Latest Article
+* **LLM inference engines performance testing: SGLang VS. VLLM:** [https://medium.com/@occlubssk/llm-inference-engines-performance-testing-sglang-vs-vllm-cfd2a597852a](https://medium.com/@occlubssk/llm-inference-engines-performance-testing-sglang-vs-vllm-cfd2a597852a) 
+
+## Familiar Libraries
+* **Platforms:** GitHub (Proficient), GitLab (Proficient), AWS 
+* **Languages:** BASH (Proficient), Python (Familiar) 
+* **Data Analysis and Visualization:** NumPy, pandas, corrr, matplotlib, seaborn, SciPy, statsmodels, Data Studio.
+* **Machine Learning:**
+    * **Classical ML:** LR, DT, RFR, SVM, GPR, KNN (Familiar) 
+    * **Deep learning:** ANN (Familiar) 
+* **AI and LLMs:** Hugging Face, LangChain, Opened-LLMs models, OpenAI 
+* **ML Libraries:** TensorFlow, learn, PyTorch 
+* **Databases:** databricks, SQL Server, groq, COSGL, influxdb, ORADLE, VLLM, OpenAI 
+* **REST APIs:** FastAPI, DynamoDB, AWS Lambda 
