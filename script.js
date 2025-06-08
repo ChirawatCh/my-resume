@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const response = await getGroqResponse(message);
                 addMessage(response, "bot", true);
             } catch (error) {
-                console.error("Error getting Groq response:", error);
+                console.error("Error getting AI response:", error);
                 addMessage("Sorry, I'm having trouble connecting. Please try again.", "bot");
             } finally {
                 removeTypingIndicator();
