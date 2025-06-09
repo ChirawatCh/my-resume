@@ -632,3 +632,56 @@ nav {
   left: 0;
   color: var(--gradient-start);
 }
+
+/* Markdown specific styles */
+.message-text pre {
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+}
+
+.message-text code {
+  background-color: #e0e0e0;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  border-radius: 3px;
+}
+
+.message-text pre code {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  border-radius: 0;
+}
+
+.message-text blockquote {
+  border-left: 4px solid var(--gradient-start);
+  padding-left: 1rem;
+  margin-left: 0;
+  color: var(--secondary-text-color);
+  font-style: italic;
+}
+
+.message-text table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.message-text th,
+.message-text td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.message-text th {
+  background-color: var(--light-gray-color);
+  font-weight: 600;
+}

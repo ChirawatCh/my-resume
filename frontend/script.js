@@ -108,12 +108,13 @@ document.addEventListener("DOMContentLoaded", function () {
             showTypingIndicator();
             try {
                 const response = await getGroqResponse(message);
-                addMessage(response, "bot", true);
+                removeTypingIndicator(); // Remove indicator before adding message
+                addMessage(response, "bot");
             } catch (error) {
                 console.error("Error getting AI response:", error);
+                removeTypingIndicator(); // Also remove on error
                 addMessage("Sorry, I'm having trouble connecting. Please try again.", "bot");
             } finally {
-                removeTypingIndicator();
                 messageInput.disabled = false;
                 sendBtn.disabled = false;
                 messageInput.focus();
@@ -121,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
-    function addMessage(text, sender, useTypewriter = false) {
+    function addMessage(text, sender) {
         const messageDiv = document.createElement("div");
         messageDiv.classList.add("chat-message", `${sender}-message`);
         const messageContent = document.createElement("div");
@@ -136,24 +137,13 @@ document.addEventListener("DOMContentLoaded", function () {
         messageContent.appendChild(messageTimestamp);
         messageDiv.appendChild(messageContent);
         chatBody.appendChild(messageDiv);
-        if (sender === "bot" && useTypewriter) {
-            typeWriter(messageText, text, () => smoothScrollToBottom());
+
+        if (sender === "bot") {
+            messageText.innerHTML = marked.parse(text);
         } else {
             messageText.textContent = text;
-            smoothScrollToBottom();
         }
-    }
-    function typeWriter(element, text, callback, speed = 30) {
-        let i = 0;
-        element.innerHTML = "";
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i); i++;
-                smoothScrollToBottom();
-                setTimeout(type, speed);
-            } else if (callback) { callback(); }
-        }
-        type();
+        smoothScrollToBottom();
     }
     async function getGroqResponse(question) {
     // Replace this with the "Invoke URL" from your AWS API Gateway
