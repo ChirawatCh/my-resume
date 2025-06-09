@@ -1,7 +1,6 @@
 # Chirawat Chitpakdee's Resume
 
 ## Contact Information
-* **Address:** 294/900 IDEO condo Charan Sanitwong 70/2, Charan Sanitwong Rd., Bang Phlat district, Bangkok 10700 
 * **Mobile:** (+66) 087-400-4666 
 * **Email:** chirawat.ch@ku.th 
 
