@@ -614,3 +614,21 @@ nav {
     bottom: 1rem;
   }
 }
+
+.achievements-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.achievements-section ul li {
+  margin-bottom: 15px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.achievements-section ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--gradient-start);
+}
