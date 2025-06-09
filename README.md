@@ -4,6 +4,14 @@ Welcome to my interactive resume project! This repository contains the source co
 
 It's built with a modern tech stack, featuring a sleek, responsive frontend and a robust, serverless backend powered by AWS. This project not only displays my resume but also demonstrates my capabilities in full-stack development and cloud infrastructure management.
 
+## Screenshot
+
+![Home Page](frontend/images/example_home.png)
+
+## Live Demo
+
+You can see a live version of this project at [chirawat.info](https://chirawat.info).
+
 ## Table of Contents
 
 - [Key Features](#key-features)
@@ -14,7 +22,7 @@ It's built with a modern tech stack, featuring a sleek, responsive frontend and 
   - [Frontend Deployment (AWS S3)](#frontend-deployment-aws-s3)
   - [Backend Deployment (AWS Lambda)](#backend-deployment-aws-lambda)
 - [Usage](#usage)
-- [Live Demo](#live-demo)
+- [LLM Service](#llm-service)
 - [License](#license)
 
 ## Key Features
@@ -39,20 +47,15 @@ It's built with a modern tech stack, featuring a sleek, responsive frontend and 
 -   **AWS API Gateway**: To create and manage the API.
 -   **AWS S3**: For hosting the static frontend.
 
+### LLM Service
+-   **Groq API**: This project uses the Groq API for its Large Language Model capabilities. You will need to sign up for a free account at [Groq](https://groq.com/) to get an API key.
+
 ## Project Overview
 
 This project is architected into two main components:
 
 -   **Frontend**: A pure static website (`frontend/`) that acts as the presentation layer. It is responsible for rendering the user interface and fetching data from the backend API. It's designed to be simple, fast, and easily deployable on any static hosting service.
 -   **Backend**: A serverless application (`backend/`) powered by Node.js and AWS Lambda. It exposes a single API endpoint that reads resume content from a text file and returns it in a structured format. This separation of concerns makes the application modular and scalable.
-
-## Screenshot
-
-![Home Page](frontend/images/example_home.png)
-
-## Live Demo
-
-You can see a live version of this project at [chirawat.info](https://chirawat.info).
 
 ## Getting Started
 
