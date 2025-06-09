@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Test Page</title>
+</head>
+<body>
+
+    <h1>API Endpoint Test</h1>
+    <p>Open the developer console (F12) to see the result.</p>
+    <button onclick="runTest()">Test API</button>
+    <div id="result" style="margin-top: 20px; font-family: monospace; background-color: #f0f0f0; padding: 10px; border-radius: 5px;"></div>
+
+    <script>
+        // This is the correct and final line for your script.js
+        const YOUR_API_GATEWAY_ENDPOINT = "https://puf76fk3fk.execute-api.ap-southeast-1.amazonaws.com/prod/chat";
+
+        async function runTest() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = 'Sending request...';
+            console.log('Sending request...');
+
+            try {
+                const response = await fetch(YOUR_API_GATEWAY_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    // Send a sample question in the correct format
+                    body: JSON.stringify({
+                        question: "Hello, who are you?",
+                    }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok. Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Log the full response to the console for inspection
+                console.log('✅ Success! API Response:', data);
+
+                // Display the message on the page
+                resultDiv.textContent = `Success! Response: ${data.message}`;
+
+            } catch (error) {
+                console.error('❌ Error during API test:', error);
+                resultDiv.textContent = `Error: ${error.message}`;
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,2 +1,15 @@
 config.js
 .DS_Store
+backend/node_modules/
+frontend/node_modules/
+frontend/dist/
+# Ignore build output
+build/
+# Ignore log files
+*.log
+# Ignore environment files
+.env
+# Ignore coverage reports
+coverage/
+# Ignore temporary files
+*.tmp

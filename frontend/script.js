@@ -155,69 +155,35 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         type();
     }
-    let resumeContent = "";
-    // Fetch resume content from external file
-    fetch("./resumeContent.txt")
-        .then((response) => response.text())
-        .then((text) => {
-            resumeContent = text;
-        })
-        .catch((error) => {
-            console.error("Error fetching resume content:", error);
-            resumeContent = "Error loading resume content.";
-        });
     async function getGroqResponse(question) {
-        const response = await fetch(
-            "https://api.groq.com/openai/v1/chat/completions",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${GROQ_API_KEY}`,
-                },
-                body: JSON.stringify({
-                    messages: [
-                        {
-                            role: "system",
-                            content: `
-                        You are Chirawat Chitpakdee (ชื่อไทย: จิรวัฒน์ จิตภักดี, ชื่อเล่น: อี๋). Speak and respond as yourself in all interactions.
+    // Replace this with the "Invoke URL" from your AWS API Gateway
+    const GATEWAY_ENDPOINT = "https://puf76fk3fk.execute-api.ap-southeast-1.amazonaws.com/prod/chat";
 
-                        Your answers must be:
-                        - Accurate, concise, and professional
-                        - Friendly and approachable, written in a natural tone — as if you're speaking directly to the person asking
-                        - In the **same language** as the user's input — always reply in the language the question was asked
-
-                        Do not:
-                        - Refer to yourself in the third person
-                        - Use phrases like "According to my resume" or "Based on the information provided"
-                        - Use markdown formatting
-                        - Answer questions unrelated to you
-                        `
-                        },
-                        {
-                            role: "assistant",
-                            content: `Resume of Chirawat Chitpakdee:\n\n${resumeContent}`,
-                        },
-                        {
-                            role: "user",
-                            content: question,
-                        },
-                    ],
-                    model: "meta-llama/llama-4-scout-17b-16e-instruct",
-                    temperature: 0.7,
-                    max_tokens: 1024,
-                    top_p: 1,
-                    stream: false,
-                }),
+    try {
+        const response = await fetch(GATEWAY_ENDPOINT, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
             },
-        );
+            // The body now only contains the dynamic part: the user's question.
+            body: JSON.stringify({
+                question: question,
+            }),
+        });
+
         if (!response.ok) {
             throw new Error("Network response was not ok");
         }
-        const data = await response.json();
-        return data.choices[0].message.content;
-    }
 
+        const data = await response.json();
+        // The Lambda will return the final message content directly.
+        return data.message;
+
+    } catch (error) {
+        console.error("Error calling backend API:", error);
+        return "Sorry, I'm having trouble connecting to my brain right now. Please try again later.";
+    }
+    }
     initializeChat();
     sendBtn.addEventListener("click", sendMessage);
     messageInput.addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
