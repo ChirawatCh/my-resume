@@ -72,7 +72,8 @@ export const handler = async (event) => {
             headers: {
                 "Content-Type": "application/json",
                 // Be more specific for better security in production
-                "Access-Control-Allow-Origin": "*",
+                // "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://chirawat.info",
                 "Access-Control-Allow-Headers": "Content-Type",
                 "Access-Control-Allow-Methods": "POST, OPTIONS"
             },
