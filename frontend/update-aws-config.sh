@@ -6,9 +6,9 @@
 
 set -e
 
-OLD_BUCKET=""
-NEW_BUCKET=""
-DOMAIN=""
+OLD_BUCKET="your-previous-bucket-name"
+NEW_BUCKET="your-new-bucket-name"
+DOMAIN="your-domain.com"
 
 echo "🔄 Updating AWS configuration for domain: $DOMAIN"
 echo "📦 Old bucket: $OLD_BUCKET"

@@ -1,11 +1,10 @@
 #!/bin/bash
 
 # AWS S3 Deployment Script for Next.js Static Site
-# Bucket: 
 
 set -e
 
-BUCKET_NAME=""
+BUCKET_NAME="your-bucket-name"
 BUILD_DIR="out"
 
 echo "🚀 Starting deployment to S3 bucket: $BUCKET_NAME"
