@@ -6,7 +6,7 @@ It's built with a modern tech stack, featuring a sleek, responsive frontend and 
 
 ## Screenshot
 
-![Home Page](frontend/images/example_home.png)
+![Home Page](frontend/public/images/example_home.png)
 
 ## Live Demo
 
@@ -36,10 +36,11 @@ You can see a live version of this project at [chirawat.info](https://chirawat.i
 ## Tech Stack
 
 ### Frontend
--   **HTML5**
--   **CSS3**
--   **JavaScript (ES6+)**
--   **Marked.js**: For rendering Markdown content.
+-   **Next.js 15**: React framework with App Router
+-   **React 19**: JavaScript library for building user interfaces
+-   **TypeScript**: Type-safe JavaScript development
+-   **Tailwind CSS**: Utility-first CSS framework
+-   **Marked.js**: For rendering Markdown content
 
 ### Backend
 -   **Node.js**: JavaScript runtime for the serverless functions.
@@ -54,7 +55,7 @@ You can see a live version of this project at [chirawat.info](https://chirawat.i
 
 This project is architected into two main components:
 
--   **Frontend**: A pure static website (`frontend/`) that acts as the presentation layer. It is responsible for rendering the user interface and fetching data from the backend API. It's designed to be simple, fast, and easily deployable on any static hosting service.
+-   **Frontend**: A Next.js application (`frontend/`) that acts as the presentation layer. Built with React and TypeScript, it provides a modern, interactive user interface with server-side generation capabilities. The app fetches data from the backend API and can be deployed as a static export or on serverless platforms.
 -   **Backend**: A serverless application (`backend/`) powered by Node.js and AWS Lambda. It exposes a single API endpoint that reads resume content from a text file and returns it in a structured format. This separation of concerns makes the application modular and scalable.
 
 ## Getting Started
@@ -63,18 +64,24 @@ To run this project locally for development and testing, follow these steps:
 
 ### Prerequisites
 
--   [Node.js](https://nodejs.org/) installed on your machine.
+-   [Node.js](https://nodejs.org/) (version 18 or higher) installed on your machine.
 -   A code editor like [VS Code](https://code.visualstudio.com/).
 
 ### Frontend
 
-1.  Open the `frontend/index.html` file directly in your web browser.
-2.  For the best experience, especially to avoid CORS issues when fetching from a local backend, it's recommended to use a simple local server. If you have Python installed, you can run:
+1.  Navigate to the `frontend/` directory:
     ```bash
-    # From the frontend/ directory
-    python -m http.server
+    cd frontend
     ```
-    Or use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension in VS Code.
+2.  Install the dependencies:
+    ```bash
+    npm install
+    ```
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+4.  Open your browser and navigate to `http://localhost:3000` to view the application.
 
 ### Backend
 
@@ -92,11 +99,20 @@ To run this project locally for development and testing, follow these steps:
 
 This guide provides instructions on how to deploy the frontend and backend to AWS.
 
-### Frontend Deployment (AWS S3)
+### Frontend Deployment
 
-The frontend is a static website that can be hosted on AWS S3.
+The Next.js frontend can be deployed in multiple ways:
 
-1.  **Create an S3 Bucket:**
+#### Option 1: Static Export to AWS S3
+
+1.  **Build and Export:**
+    ```bash
+    cd frontend
+    npm run build
+    ```
+    This creates an `out/` directory with static files.
+
+2.  **Create an S3 Bucket:**
     -   Navigate to the S3 service in the AWS Management Console.
     -   Click "Create bucket".
     -   Enter a unique bucket name (e.g., `my-resume-website`).
@@ -104,19 +120,19 @@ The frontend is a static website that can be hosted on AWS S3.
     -   Uncheck "Block all public access" and acknowledge the warning.
     -   Click "Create bucket".
 
-2.  **Upload Frontend Files:**
+3.  **Upload Build Files:**
     -   Navigate to the created bucket.
     -   Click "Upload".
-    -   Upload all the files and folders from the `frontend/` directory of this project.
+    -   Upload all the files and folders from the `frontend/out/` directory.
 
-3.  **Enable Static Website Hosting:**
+4.  **Enable Static Website Hosting:**
     -   In your S3 bucket, go to the "Properties" tab.
     -   Scroll down to "Static website hosting" and click "Edit".
     -   Select "Enable".
     -   Set the "Index document" to `index.html`.
     -   Click "Save changes".
 
-4.  **Set Bucket Policy for Public Access:**
+5.  **Set Bucket Policy for Public Access:**
     -   Go to the "Permissions" tab of your S3 bucket.
     -   Under "Bucket policy", click "Edit".
     -   Paste the following JSON policy, replacing `YOUR_BUCKET_NAME` with your actual bucket name:
@@ -135,11 +151,20 @@ The frontend is a static website that can be hosted on AWS S3.
         ]
     }
     ```
-    -   Click "Save changes".
 
-5.  **Access Your Website:**
-    -   Go back to the "Properties" tab and find the "Static website hosting" section.
-    -   Your website URL will be displayed there.
+#### Option 2: Vercel Deployment (Recommended for Next.js)
+
+1.  Push your code to a Git repository (GitHub, GitLab, or Bitbucket).
+2.  Connect your repository to [Vercel](https://vercel.com/).
+3.  Vercel will automatically detect the Next.js framework and deploy your application.
+4.  Your application will be available at a `.vercel.app` domain with automatic HTTPS.
+
+#### Option 3: Other Platforms
+
+Next.js can also be deployed to:
+-   **Netlify**: Static site generation with serverless functions
+-   **AWS Amplify**: Full-stack deployment with CI/CD
+-   **Railway**: Container-based deployment
 
 ### Backend Deployment (AWS Lambda)
 
@@ -191,10 +216,25 @@ The backend is a Node.js application designed to run as an AWS Lambda function.
 
 After deploying both the frontend and backend, you need to update the frontend code to use the new API Gateway endpoint URL.
 
-1.  Open `frontend/script.js`.
-2.  Find the variable that holds the API endpoint URL.
-3.  Replace the placeholder URL with the actual API Gateway endpoint URL you obtained in the backend deployment steps.
-4.  Re-upload the modified `script.js` to your S3 bucket.
+### Development
+
+1.  Start the Next.js development server:
+    ```bash
+    cd frontend
+    npm run dev
+    ```
+2.  The application will be available at `http://localhost:3000`.
+3.  Update the API endpoint URL in your components or configuration files to point to your deployed backend.
+
+### Production
+
+1.  Build the application:
+    ```bash
+    cd frontend
+    npm run build
+    ```
+2.  For static export deployment, the built files will be in the `out/` directory.
+3.  Make sure the API endpoint URLs are correctly configured for your production environment.
 
 ## License
 
