@@ -57,11 +57,13 @@ export const handler = async (event) => {
                     content: question, // The question from the user
                 },
             ],
-            model: "meta-llama/llama-4-scout-17b-16e-instruct",
+            model: "qwen/qwen3-32b",
             temperature: 0.7,
             max_tokens: 1024,
-            top_p: 1,
+            top_p: 0.95,
             stream: false,
+            reasoning_effort: "none",
+            stop: null 
         });
         
         const responseMessage = chatCompletion.choices[0].message.content;
