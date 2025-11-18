@@ -1,58 +1,169 @@
-Chirawat Chitpakdee (Eee) is a versatile professional in AI workflow engineering, specializing in integrating AI solutions with automation processes for cost-efficiency and innovation. He has expertise in performance testing, RPA, and AI deployment, delivering scalable and reliable systems.
+Chirawat Chitpakdee (Eee) - Tech Lead Engineer | AI, RPA & Automation Workflow Specialist
 
-JOB EXPERIENCE:
-- Tech Lead Engineer at CP Axtra - Lotus's (2022-present)
-- Digital economy promotion officer at depa (2021-2022)
-- Research assistant at National Nanotechnology Center, NSTDA (2012-2021)
+CONTACT INFORMATION:
+Address: 294/900 IDEO condo Charan Sanitwong 70/2, Charan Sanitwong Rd., Bang Phlat district, Bangkok 10700
+Mobile: (+66) 087-400-4666
+Email: chirawat.ch@ku.th
 
-CURRENT JOB:
-Tech Lead Engineer
-Company: CP Axtra - Lotus's
-Duration: 2022-present
-Key Responsibilities:
-  - Lead development of AI and LLM systems for enterprise applications
-  - Design and implement RPA solutions to reduce errors and manual effort
-  - Conduct performance testing using Apache JMeter and Grafana K6
-  - Manage CI/CD pipelines with Jenkins for automated testing
-  - Develop backend APIs using Python and FastAPI deployed on AWS Lambda
-  - Mentor team members on Python multi-processing and RPA best practices
-
-KEY SKILLS:
-- AI and LLM Engineering: Hugging Face, VLLM, Llamaindex, LangChain, LangGraph
-- Automation and RPA: Python, Power Automate, Robot Framework, PlayWright
-- Performance Testing: Apache JMeter, Grafana K6, Jenkins, Docker
+PROFESSIONAL SUMMARY:
+Versatile automation engineer specializing in end-to-end business process transformation through cutting-edge technologies including Python, low-code platforms, and Agentic AI. Expert in designing and implementing intelligent automation solutions that streamline operations—from automated data reconciliation and real-time analytics to AI-powered chatbots (RAG) and API services. Proven track record in delivering measurable results through performance optimization, cost reduction, and scalable automation frameworks that transform routine processes into strategic advantages.
 
 EDUCATION:
-- M.Sc., Physical Chemistry, Kasetsart University (2011)
-- B.Sc., Chemistry, Ubon Ratchathani University (2009)
+- IELTS Academic: 6.0
+- M.Sc., Physical Chemistry, Kasetsart University, Bangkok — 2011 (GPA 3.41)
+- B.Sc., Chemistry, Ubon Ratchathani University, Ubon Ratchathani — 2009 (GPA 3.05)
 
-CONTACT:
-Mobile: (+66) 087-400-4666 
-Email: chirawat.ch@ku.th 
+WORK EXPERIENCE:
 
-Relevant Skills and Tools:
+Tech Lead Engineer at CP Axtra - Lotus's (2022 – Present)
+Responsibilities:
+- Lead the design and implementation of automation solutions for business process optimization
+- Architect and develop RPA workflows and intelligent automation systems
+- Build and deploy AI-powered applications including RAG-based chatbots with MCP integration and API services
+- Design, deploy, and maintain enterprise AI API services and AI server infrastructure for organization-wide LLM deployment
+- Provide expert consultation for AI application development across departments, including LLM-based data cleansing solutions for Data Science teams
+- Setup and manage automation infrastructure including Power Automate machines, Linux servers with Cronicle scheduler for Python RPA, and AI servers for LLM deployment
+- Drive digital transformation initiatives across multiple business units
+- Mentor junior engineers and establish best practices for automation development
+- Collaborate with stakeholders to identify automation opportunities and deliver scalable solutions
+- Manage end-to-end project delivery from requirements gathering to production deployment
 
-AI and LLM Engineer:
-Experienced in developing AI and large language model (LLM) systems for enterprise applications, focusing on question-answering (Q&A) chatbots and automation algorithms.
-Proficient in leveraging retrieval-augmented generation (RAG) techniques and fine-tuning LLMs for domain-specific knowledge.
-Continuously researches AI agents (multi-agents) and evaluates emerging AI/LLM technologies, recommending and implementing improvements.
-Tools: Hugging Face, VLLM, Llamaindex 
+Key Achievements:
 
-Automation and Robotic Process Automation (RPA) Experience:
-Developed robotic automation processes for financial and business processes using Python, Power Automate, and Robot Framework.
-Resulted in decreasing error rates and manpower and time consumption.
-Implemented and scheduled robotic processes on cloud flow.
-Tools: Python, Power Automate, Robot Framework.
+AI & LLM Infrastructure:
+- Pioneered Open Source LLM Infrastructure: Initiated and deployed enterprise-grade Open Source LLM platform as OpenAI-compatible API services across CP Axtra organization (Lotus's and Makro), enabling business units to leverage AI capabilities without vendor lock-in
+- Multi-Model LLM Deployment: Successfully deployed and maintained 5+ state-of-the-art open source models including Gemma (Google), Meta-Llama, Qwen, GLM4.5, and Typhoon (SCB), providing flexible model selection for diverse use cases
+- Cross-Functional AI Adoption: Led development of RAG-based chatbot for customer service FAQs and knowledge management, while enabling data cleansing workflows for Data Science teams
 
-Performance Test (Load Testing) Experience:
-Developed scripts and performed performance testing on APIs and front-end websites using Apache JMeter and Grafana K6 tools.
-Implemented and developed JMeter and K6 scripts into Jenkins for automated load testing and continuous integration and continuous delivery.
-Tools: Apache JMeter, Grafana K6, Jenkins 
+RPA & Automation Pioneer:
+- First RPA Implementation: Pioneered RPA and automation initiatives in CP Axtra using Python and Power Automate, establishing the foundation for organization-wide automation adoption
+- Cost Optimization: Reduced RPA licensing costs by 500K baht by transitioning from UiPath to Python-based and Power Automate solutions
+- Large-Scale Data Automation: Automated daily data reconciliation from 2,500+ databases (MSSQL & Oracle) to PowerBI dashboards, eliminating manual processes
+- Performance Optimization: Initiated Python multiprocessing techniques achieving 100% CPU utilization and trained RPA team members on implementation
 
-Recent Project: AI-Powered Customer Service Chatbot:
-Developed an on-premise AI-powered customer service chatbot leveraging a RAG (Retrieval-Augmented Generation) workflow with open-source LLM model like Gemma3, LLama-3, Qwen 3, etc.
-Designed and implemented a secure, Redis for chat history management, and Qdrant for vector-based document retrieval.
-Enabled real-time, context-aware responses by incorporating a text embedding server, delivering accurate and secure domain-specific support within a fully on-premises deployment.
+Backend API & Infrastructure Development:
+- API-First RPA Approach: Transformed RPA processes by implementing backend API integration instead of frontend web crawling, improving reliability and performance
+- Serverless API Development: Designed and deployed scalable FastAPI backend services on AWS Lambda with DynamoDB, enabling robust automation workflows
+- Advanced Algorithms: Developed data cleansing algorithms and semantic string-matching system with similarity scoring (0-100) for customer data quality improvement
 
-Latest Article:
-- LLM inference engines performance testing: SGLang VS. VLLM: [https://medium.com/@occlubssk/llm-inference-engines-performance-testing-sglang-vs-vllm-cfd2a597852a](https://medium.com/@occlubssk/llm-inference-engines-performance-testing-sglang-vs-vllm-cfd2a597852a) 
+Infrastructure & Deployment:
+- RPA Infrastructure Setup: Established Power Automate machine infrastructure for low-code RPA deployment, enabling scalable automation across business units
+- Linux Server Orchestration: Configured Linux servers with Cronicle scheduler for automated Python RPA job management and execution
+- AI Server Deployment: Setup and configured AI servers for enterprise LLM API services, supporting multiple open-source models in production
+- Data Pipeline Orchestration: Implemented Apache Airflow for data pipeline automation and ETL workflow management, streamlining data processing operations
+- Chatbot Application Deployment: Successfully deployed and maintained RAG-based chatbot applications for end-user consumption
+
+Performance Testing & Monitoring:
+- Automated Testing Framework: Implemented automated performance testing system on Jenkins using JMeter and K6, streamlining QA processes
+- Real-Time Database Monitoring: Developed Grafana dashboards for real-time database monitoring, enabling proactive issue detection and performance tracking
+- Proactive Monitoring: Initiated comprehensive notification system for database monitoring with MS Teams and Email alerts within RPA workflows
+
+Knowledge Leadership:
+- AI Literacy Advocacy: Provided expert consultation for AI application development and promoted AI literacy throughout the organization
+- Team Enablement: Conducted knowledge-sharing sessions on API performance testing for Dev/QA teams and Power Automate Desktop training for company-wide adoption
+
+Digital Economy Promotion Officer at depa (Digital Economy Promotion Agency) (2021 – 2022)
+Responsibilities:
+- Promoted digital economy initiatives and supported SMEs in adopting digital technologies to enhance competitiveness
+- Developed and delivered digital skills training programs for workforce development across various levels
+- Drove smart city initiatives by implementing technology and innovation solutions to improve urban management and quality of life
+- Supported digital startup ecosystem through mentorship and resource provision
+- Organized workshops, seminars, and provided technology consulting to students, entrepreneurs, and the general public
+
+Research Assistant at National Nanotechnology Center, NSTDA (2012 – 2021)
+Responsibilities:
+- Conducted computational chemistry research using DFT and ML for materials design, catalyst prediction, and property optimization
+- Investigated photophysical properties of organic materials for renewable energy applications (DSSCs, OLEDs)
+- Developed theoretical models for catalytic systems and CO2 electrochemical reduction
+- Presented research findings at international scientific conferences and delivered lectures in computational chemistry workshops
+
+Key Achievements:
+- Published 17+ peer-reviewed articles with 335+ citations (h-index: 11) in international journals
+- Developed ML-based predictive models for catalyst performance and material property screening
+- Presented at 10+ international conferences including EMRS2019 (Nice, France - oral), WATOC2017 (Munich, Germany), and multiple PACCON, ANSCSE, and NANO THAILAND conferences
+- Led breakthrough research in selective catalytic reduction using Ru-doped CeO2 (44 citations) and metal-doped materials for CO2 reduction (36+ citations)
+- Served as VASP computational software lecturer at Summer School workshops, training researchers in DFT methods
+
+TECHNICAL SKILLS:
+
+Programming & Scripting:
+- Proficient: Python, FastAPI, Flask
+- Familiar: REST APIs, PyAutoGUI, Selenium
+
+AI & Large Language Models (LLM):
+- AI Engineering: Hugging Face, LlamaIndex, LangChain, LangGraph, OpenAI, ChatGPT, Claude Code, Codex
+- LLM Deployment: Open source LLM, vLLM, SGLang (inference optimization)
+- AI Integration: Model Context Protocol (MCP) for AI agent function calling and tool integration
+- Expertise: Question-answering systems, Retrieval-Augmented Generation (RAG), LLM fine-tuning for domain-specific knowledge, LLM-based data cleansing
+- Research: Multi-agent AI systems and creative LLM applications for business use cases
+
+Machine Learning & Data Science:
+- ML Libraries: TensorFlow, Keras, Scikit-learn, PyTorch
+- Classical ML Models: Logistic Regression (LR), Decision Tree (DT), Random Forest Regressor (RFR), Support Vector Machine (SVM), Gaussian Process Regression (GPR), K-Nearest Neighbors (KNN)
+- Data Analysis: Pandas, NumPy, SciPy, Matplotlib
+- Statistical Tools: statsmodels, Data Studio
+
+Automation & RPA:
+- RPA Development: Python-based robotic automation for financial and business processes
+- Low-Code Platforms: Power Automate, Cloud Flow (Microsoft), Make.com, n8n
+- Testing Automation: Playwright, Selenium, PyAutoGUI
+- Tools: BizRen, Pandas for workflow automation and data entry streamlining
+
+Cloud & DevOps:
+- Cloud: AWS, Tencent
+- Containerization: Docker
+- CI/CD: Jenkins for continuous integration and delivery pipelines
+- Performance Testing: Apache JMeter, K6 for load testing and performance monitoring
+- Monitoring & Visualization: Grafana for real-time database monitoring and dashboard creation
+
+Databases:
+- SQL: PostgreSQL, SQL Server, MSSQL
+- NoSQL: MongoDB
+
+Data Engineering & Orchestration:
+- Workflow Orchestration: Apache Airflow for data pipeline automation and ETL processes
+- Data Pipeline: Design and implementation of scalable data workflows
+
+Computational Chemistry (Research Background):
+- Methods: Density Functional Theory (DFT), ML for materials prediction
+- Software: VASP (Vienna Ab initio Simulation Package)
+
+KEY PROJECTS:
+
+Finance RPA Automation Platform:
+- Description: Designed and developed comprehensive RPA automation platform handling 80+ workflows for Finance and Accounting departments, automating critical processes including bank statement reconciliation, payment processing, transaction verification, and invoice management
+- Core Capabilities: Auto-download reports/statements from multiple sources, multi-database reconciliation (2,500+ databases), web form automation, file upload/download (SharePoint, SFTP), automated notifications (Email, MS Teams), transaction and invoice validation
+- Technologies: Python, Power Automate, MSSQL, Oracle, SharePoint
+- Impact: Eliminated manual data entry across 80+ finance workflows, reduced reconciliation time from days to hours, improved data accuracy for daily PowerBI dashboards
+
+Enterprise AI & LLM Infrastructure:
+- Description: Led end-to-end implementation of enterprise AI infrastructure including LLM API services, AI server maintenance, and intelligent chatbot solutions across multiple business units
+- Key Solutions:
+  - Customer service AI agent with MCP-enabled function calling (user profile lookup, coin balance checks, FAQ responses)
+  - RAG chatbots for Finance (process approval) and Accounting (SQL agent for data queries)
+  - LLM-powered data cleansing pipeline for Data Science teams
+- Technologies: Python, FastAPI, vLLM, SGLang, LangChain, MCP, Gemma, Meta-Llama, Qwen, GLM4.5, Typhoon
+- Impact: Enabled AI adoption across organization, reduced data cleansing time by 70%, deployed internal customer service agent serving enterprise users
+
+Data Reconciliation & Service Monitoring System:
+- Description: Built enterprise-scale data reconciliation and service monitoring platform using Apache Airflow, managing 100+ DAGs for critical business operations including inventory management, payment processing, sales tracking, and system health monitoring
+- Key Workflows: SOH (Stock-On-Hand) reconciliation, RMS-SIM data comparison, payment gateway monitoring (2C2P, True Money, Grab), promotion and pricing synchronization, product master data validation, transaction monitoring across all store formats
+- Technologies: Python, Apache Airflow, MSSQL, PostgreSQL, Oracle, Grafana, SharePoint
+- Impact: Automated monitoring of 100+ critical business processes, proactive issue detection through real-time alerts, ensured data consistency across enterprise systems
+
+Enterprise API Performance Testing Framework:
+- Description: Established comprehensive performance testing framework for enterprise backend API services, ensuring scalability and reliability across mission-critical systems
+- Services Tested: Coin balance system, workforce management, cloud migration services, cash office operations, tax invoice processing, shopping mission platform, register services, tax online system, notification APIs
+- Technologies: Apache JMeter, K6, Jenkins, Grafana, Python
+- Impact: Identified and resolved performance bottlenecks pre-production, ensured API reliability under high load, established performance benchmarks for enterprise services
+
+PUBLICATIONS & TECHNICAL WRITING:
+
+Medium Articles:
+- "LLM Inference Engines Performance Testing: SGLang VS. vLLM" (2024)
+  Comprehensive performance benchmarking of modern LLM inference engines
+  Link: https://medium.com/@occlubssk/llm-inference-engines-performance-testing-sglang-vs-vllm-cfd2a597852a
+
+LANGUAGES:
+- Thai: Native
+- English: Professional working proficiency (IELTS Academic: 6.0)

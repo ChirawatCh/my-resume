@@ -4,7 +4,7 @@
 
 set -e
 
-BUCKET_NAME="your-bucket-name"
+BUCKET_NAME="chirawat.info.nextjs"
 BUILD_DIR="out"
 
 echo "🚀 Starting deployment to S3 bucket: $BUCKET_NAME"

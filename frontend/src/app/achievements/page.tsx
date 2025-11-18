@@ -2,23 +2,72 @@ export default function Achievements() {
   return (
     <section className="resume-content">
       <div className="container">
-        <div className="achievements-section">
-          <h2 className="card-title">Achievements</h2>
+        <div className="card">
+          <h2 className="card-title">Key Achievements</h2>
+        </div>
+
+        <div className="card">
+          <h3 className="card-title">AI & LLM Infrastructure</h3>
           <ul>
-            <li><strong>AI Applications:</strong> Leading in development of AI applications to enhance customer service, including the creation of a RAG-based chatbot for FAQs and knowledge management.</li>
-            <li><strong>AI Consultation & Literacy:</strong> Providing expert consultation for AI application development and promoting AI literacy throughout the organization.</li>
-            <li><strong>Python Multi-processing:</strong> Initiated using multiple processing in Python and educated team members within the RPA team, achieving 100% CPU utilization.</li>
-            <li><strong>Automated Data Reconciliation:</strong> Automated data reconciliation from over 2500 databases (MSSQL & Oracle) to daily update data on PowerBI dashboards.</li>
-            <li><strong>RPA Implementation & Cost Reduction:</strong> Commenced RPA using the low-code platform Power Automate (Microsoft) and reduced UiPath license cost by around 500k baht.</li>
-            <li><strong>Performance Testing Initiation:</strong> Initiated the use of Grafana K6 for performance testing.</li>
-            <li><strong>Automated Performance Testing:</strong> Automated performance testing system on Jenkins using JMeter & K6.</li>
-            <li><strong>Backend APIs in RPA:</strong> Initiated the utilization of backend APIs in RPA processes instead of collecting elements from the frontend website (Web crawling).</li>
-            <li><strong>Backend API Development:</strong> Successfully developed backend APIs using Python with the FastAPI framework, deployed on AWS Lambda, and utilized DynamoDB.</li>
-            <li><strong>Data Cleansing Algorithm:</strong> Developed an advanced algorithm for data cleansing on customer details.</li>
-            <li><strong>String-Matching Algorithm:</strong> Developed a string-matching algorithm producing a similarity score (0 to 100) for matching similar strings (Semantic search & Matching).</li>
-            <li><strong>Notification System:</strong> Initiated a notification system within the RPA process for database monitoring, sending alert messages via MS Team and Email.</li>
-            <li><strong>Knowledge Sharing:</strong> Encouraged and shared knowledge on &quot;How to perform performance testing on APIs&quot; to Dev and QA teams.</li>
-            <li><strong>RPA Education:</strong> Encouraged company members on &quot;How to execute RPA using Power Automate Desktop on a low-code platform&quot;.</li>
+            <li><strong>Pioneered Open Source LLM Infrastructure:</strong> Initiated and deployed enterprise-grade Open Source LLM platform as OpenAI-compatible API services across CP Axtra organization (Lotus&apos;s and Makro), enabling business units to leverage AI capabilities without vendor lock-in</li>
+            <li><strong>Multi-Model LLM Deployment:</strong> Successfully deployed and maintained 5+ state-of-the-art open source models including Gemma (Google), Meta-Llama, Qwen, GLM4.5, and Typhoon (SCB)</li>
+            <li><strong>Cross-Functional AI Adoption:</strong> Led development of RAG-based chatbot for customer service FAQs and knowledge management, while enabling data cleansing workflows for Data Science teams</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3 className="card-title">RPA & Automation Pioneer</h3>
+          <ul>
+            <li><strong>First RPA Implementation:</strong> Pioneered RPA and automation initiatives in CP Axtra using Python and Power Automate, establishing the foundation for organization-wide automation adoption</li>
+            <li><strong>Cost Optimization:</strong> Reduced RPA licensing costs by 500K baht by transitioning from UiPath to Python-based and Power Automate solutions</li>
+            <li><strong>Large-Scale Data Automation:</strong> Automated daily data reconciliation from 2,500+ databases (MSSQL & Oracle) to PowerBI dashboards, eliminating manual processes</li>
+            <li><strong>Performance Optimization:</strong> Initiated Python multiprocessing techniques achieving 100% CPU utilization and trained RPA team members on implementation</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3 className="card-title">Backend API & Infrastructure Development</h3>
+          <ul>
+            <li><strong>API-First RPA Approach:</strong> Transformed RPA processes by implementing backend API integration instead of frontend web crawling, improving reliability and performance</li>
+            <li><strong>Serverless API Development:</strong> Designed and deployed scalable FastAPI backend services on AWS Lambda with DynamoDB</li>
+            <li><strong>Advanced Algorithms:</strong> Developed data cleansing algorithms and semantic string-matching system with similarity scoring (0-100) for customer data quality improvement</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3 className="card-title">Infrastructure & Deployment</h3>
+          <ul>
+            <li><strong>RPA Infrastructure Setup:</strong> Established Power Automate machine infrastructure for low-code RPA deployment across business units</li>
+            <li><strong>Linux Server Orchestration:</strong> Configured Linux servers with Cronicle scheduler for automated Python RPA job management</li>
+            <li><strong>AI Server Deployment:</strong> Setup and configured AI servers for enterprise LLM API services, supporting multiple open-source models in production</li>
+            <li><strong>Data Pipeline Orchestration:</strong> Implemented Apache Airflow for data pipeline automation and ETL workflow management</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3 className="card-title">Performance Testing & Monitoring</h3>
+          <ul>
+            <li><strong>Automated Testing Framework:</strong> Implemented automated performance testing system on Jenkins using JMeter and K6</li>
+            <li><strong>Real-Time Database Monitoring:</strong> Developed Grafana dashboards for real-time database monitoring and proactive issue detection</li>
+            <li><strong>Proactive Monitoring:</strong> Initiated comprehensive notification system for database monitoring with MS Teams and Email alerts</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3 className="card-title">Knowledge Leadership</h3>
+          <ul>
+            <li><strong>AI Literacy Advocacy:</strong> Provided expert consultation for AI application development and promoted AI literacy throughout the organization</li>
+            <li><strong>Team Enablement:</strong> Conducted knowledge-sharing sessions on API performance testing for Dev/QA teams and Power Automate Desktop training for company-wide adoption</li>
+          </ul>
+        </div>
+
+        <div className="card">
+          <h3 className="card-title">Research Background Achievements</h3>
+          <ul>
+            <li><strong>Academic Publications:</strong> Published 17+ peer-reviewed articles with 335+ citations (h-index: 11) in international journals</li>
+            <li><strong>ML-based Research:</strong> Developed ML-based predictive models for catalyst performance and material property screening</li>
+            <li><strong>International Presentations:</strong> Presented at 10+ international conferences including EMRS2019 (Nice, France - oral), WATOC2017 (Munich, Germany)</li>
+            <li><strong>Technical Education:</strong> Served as VASP computational software lecturer at Summer School workshops, training researchers in DFT methods</li>
           </ul>
         </div>
       </div>
