@@ -3,60 +3,117 @@ export default function Projects() {
     <section className="resume-content">
       <div className="container">
         <div className="card">
-          <h2 className="card-title">Key Projects</h2>
+          <div className="section-header">
+            <i className="fas fa-project-diagram section-icon"></i>
+            <h2 className="card-title" style={{ marginBottom: 0 }}>Key Projects</h2>
+          </div>
         </div>
 
         <div className="card">
-          <h3 className="card-title">Finance RPA Automation Platform</h3>
-          <p style={{ color: 'var(--secondary-text-color)' }}>
-            <strong>Description:</strong> Designed and developed comprehensive RPA automation platform handling 80+ workflows for Finance and Accounting departments, automating critical processes including bank statement reconciliation, payment processing, transaction verification, and invoice management.
+          <div className="section-header">
+            <i className="fas fa-robot section-icon"></i>
+            <h3 className="card-title" style={{ marginBottom: 0 }}>Finance RPA Automation Platform</h3>
+          </div>
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--gradient-start)' }}>Description:</strong> Designed and developed comprehensive RPA automation platform handling 80+ workflows for Finance and Accounting departments, automating critical processes including bank statement reconciliation, payment processing, transaction verification, and invoice management.
           </p>
-          <p style={{ color: 'var(--secondary-text-color)' }}>
-            <strong>Core Capabilities:</strong> Auto-download reports/statements from multiple sources, multi-database reconciliation (2,500+ databases), web form automation, file upload/download (SharePoint, SFTP), automated notifications (Email, MS Teams), transaction and invoice validation.
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--gradient-start)' }}>Core Capabilities:</strong> Auto-download reports/statements from multiple sources, multi-database reconciliation (2,500+ databases), web form automation, file upload/download (SharePoint, SFTP), automated notifications (Email, MS Teams), transaction and invoice validation.
           </p>
-          <p><strong>Technologies:</strong> Python, Power Automate, MSSQL, Oracle, SharePoint</p>
-          <p><strong>Impact:</strong> Eliminated manual data entry across 80+ finance workflows, reduced reconciliation time from days to hours, improved data accuracy for daily PowerBI dashboards</p>
+          <p style={{ marginTop: '1rem' }}><strong style={{ color: 'var(--gradient-start)' }}>Technologies:</strong></p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '1rem' }}>
+            <span className="skill-badge">Python</span>
+            <span className="skill-badge">Power Automate</span>
+            <span className="skill-badge">MSSQL</span>
+            <span className="skill-badge">Oracle</span>
+            <span className="skill-badge">SharePoint</span>
+          </div>
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--success-color)' }}><i className="fas fa-chart-line"></i> Impact:</strong> Eliminated manual data entry across 80+ finance workflows, reduced reconciliation time from days to hours, improved data accuracy for daily PowerBI dashboards
+          </p>
         </div>
 
         <div className="card">
-          <h3 className="card-title">Enterprise AI & LLM Infrastructure</h3>
-          <p style={{ color: 'var(--secondary-text-color)' }}>
-            <strong>Description:</strong> Led end-to-end implementation of enterprise AI infrastructure including LLM API services, AI server maintenance, and intelligent chatbot solutions across multiple business units.
+          <div className="section-header">
+            <i className="fas fa-brain section-icon"></i>
+            <h3 className="card-title" style={{ marginBottom: 0 }}>Enterprise AI & LLM Infrastructure</h3>
+          </div>
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--gradient-start)' }}>Description:</strong> Led end-to-end implementation of enterprise AI infrastructure including LLM API services, AI server maintenance, and intelligent chatbot solutions across multiple business units.
           </p>
-          <p style={{ color: 'var(--secondary-text-color)' }}>
-            <strong>Key Solutions:</strong>
-          </p>
+          <p style={{ marginTop: '1rem' }}><strong style={{ color: 'var(--gradient-start)' }}>Key Solutions:</strong></p>
           <ul>
             <li>Customer service AI agent with MCP-enabled function calling (user profile lookup, coin balance checks, FAQ responses)</li>
             <li>RAG chatbots for Finance (process approval) and Accounting (SQL agent for data queries)</li>
             <li>LLM-powered data cleansing pipeline for Data Science teams</li>
           </ul>
-          <p><strong>Technologies:</strong> Python, FastAPI, vLLM, SGLang, LangChain, MCP, Gemma, Meta-Llama, Qwen, GLM4.5, Typhoon</p>
-          <p><strong>Impact:</strong> Enabled AI adoption across organization, reduced data cleansing time by 70%, deployed internal customer service agent serving enterprise users</p>
+          <p style={{ marginTop: '1rem' }}><strong style={{ color: 'var(--gradient-start)' }}>Technologies:</strong></p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '1rem' }}>
+            <span className="skill-badge">Python</span>
+            <span className="skill-badge">FastAPI</span>
+            <span className="skill-badge">vLLM</span>
+            <span className="skill-badge">SGLang</span>
+            <span className="skill-badge">LangChain</span>
+            <span className="skill-badge">MCP</span>
+            <span className="skill-badge">Gemma</span>
+            <span className="skill-badge">Meta-Llama</span>
+            <span className="skill-badge">Qwen</span>
+            <span className="skill-badge">GLM4.5</span>
+            <span className="skill-badge">Typhoon</span>
+          </div>
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--success-color)' }}><i className="fas fa-chart-line"></i> Impact:</strong> Enabled AI adoption across organization, reduced data cleansing time by 70%, deployed internal customer service agent serving enterprise users
+          </p>
         </div>
 
         <div className="card">
-          <h3 className="card-title">Data Reconciliation & Service Monitoring System</h3>
-          <p style={{ color: 'var(--secondary-text-color)' }}>
-            <strong>Description:</strong> Built enterprise-scale data reconciliation and service monitoring platform using Apache Airflow, managing 100+ DAGs for critical business operations including inventory management, payment processing, sales tracking, and system health monitoring.
+          <div className="section-header">
+            <i className="fas fa-database section-icon"></i>
+            <h3 className="card-title" style={{ marginBottom: 0 }}>Data Reconciliation & Service Monitoring System</h3>
+          </div>
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--gradient-start)' }}>Description:</strong> Built enterprise-scale data reconciliation and service monitoring platform using Apache Airflow, managing 100+ DAGs for critical business operations including inventory management, payment processing, sales tracking, and system health monitoring.
           </p>
-          <p style={{ color: 'var(--secondary-text-color)' }}>
-            <strong>Key Workflows:</strong> SOH (Stock-On-Hand) reconciliation, RMS-SIM data comparison, payment gateway monitoring (2C2P, True Money, Grab), promotion and pricing synchronization, product master data validation, transaction monitoring across all store formats.
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--gradient-start)' }}>Key Workflows:</strong> SOH (Stock-On-Hand) reconciliation, RMS-SIM data comparison, payment gateway monitoring (2C2P, True Money, Grab), promotion and pricing synchronization, product master data validation, transaction monitoring across all store formats.
           </p>
-          <p><strong>Technologies:</strong> Python, Apache Airflow, MSSQL, PostgreSQL, Oracle, Grafana, SharePoint</p>
-          <p><strong>Impact:</strong> Automated monitoring of 100+ critical business processes, proactive issue detection through real-time alerts, ensured data consistency across enterprise systems</p>
+          <p style={{ marginTop: '1rem' }}><strong style={{ color: 'var(--gradient-start)' }}>Technologies:</strong></p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '1rem' }}>
+            <span className="skill-badge">Python</span>
+            <span className="skill-badge">Apache Airflow</span>
+            <span className="skill-badge">MSSQL</span>
+            <span className="skill-badge">PostgreSQL</span>
+            <span className="skill-badge">Oracle</span>
+            <span className="skill-badge">Grafana</span>
+            <span className="skill-badge">SharePoint</span>
+          </div>
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--success-color)' }}><i className="fas fa-chart-line"></i> Impact:</strong> Automated monitoring of 100+ critical business processes, proactive issue detection through real-time alerts, ensured data consistency across enterprise systems
+          </p>
         </div>
 
         <div className="card">
-          <h3 className="card-title">Enterprise API Performance Testing Framework</h3>
-          <p style={{ color: 'var(--secondary-text-color)' }}>
-            <strong>Description:</strong> Established comprehensive performance testing framework for enterprise backend API services, ensuring scalability and reliability across mission-critical systems.
+          <div className="section-header">
+            <i className="fas fa-tachometer-alt section-icon"></i>
+            <h3 className="card-title" style={{ marginBottom: 0 }}>Enterprise API Performance Testing Framework</h3>
+          </div>
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--gradient-start)' }}>Description:</strong> Established comprehensive performance testing framework for enterprise backend API services, ensuring scalability and reliability across mission-critical systems.
           </p>
-          <p style={{ color: 'var(--secondary-text-color)' }}>
-            <strong>Services Tested:</strong> Coin balance system, workforce management, cloud migration services, cash office operations, tax invoice processing, shopping mission platform, register services, tax online system, notification APIs.
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--gradient-start)' }}>Services Tested:</strong> Coin balance system, workforce management, cloud migration services, cash office operations, tax invoice processing, shopping mission platform, register services, tax online system, notification APIs.
           </p>
-          <p><strong>Technologies:</strong> Apache JMeter, K6, Jenkins, Grafana, Python</p>
-          <p><strong>Impact:</strong> Identified and resolved performance bottlenecks pre-production, ensured API reliability under high load, established performance benchmarks for enterprise services</p>
+          <p style={{ marginTop: '1rem' }}><strong style={{ color: 'var(--gradient-start)' }}>Technologies:</strong></p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '1rem' }}>
+            <span className="skill-badge">Apache JMeter</span>
+            <span className="skill-badge">K6</span>
+            <span className="skill-badge">Jenkins</span>
+            <span className="skill-badge">Grafana</span>
+            <span className="skill-badge">Python</span>
+          </div>
+          <p style={{ color: 'var(--secondary-text-color)', lineHeight: '1.8' }}>
+            <strong style={{ color: 'var(--success-color)' }}><i className="fas fa-chart-line"></i> Impact:</strong> Identified and resolved performance bottlenecks pre-production, ensured API reliability under high load, established performance benchmarks for enterprise services
+          </p>
         </div>
       </div>
     </section>

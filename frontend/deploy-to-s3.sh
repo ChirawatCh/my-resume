@@ -41,6 +41,18 @@ aws s3 sync $BUILD_DIR/ s3://$BUCKET_NAME --delete \
 echo "🌐 Configuring S3 website hosting..."
 aws s3 website s3://$BUCKET_NAME --index-document index.html --error-document 404.html
 
+# Invalidate CloudFront cache
+DISTRIBUTION_ID="E3JUX6LFH6K47F"
+echo "🔄 Invalidating CloudFront cache for distribution: $DISTRIBUTION_ID"
+INVALIDATION_ID=$(aws cloudfront create-invalidation \
+    --distribution-id $DISTRIBUTION_ID \
+    --paths "/*" \
+    --query 'Invalidation.Id' \
+    --output text)
+
+echo "⏳ CloudFront invalidation created: $INVALIDATION_ID"
+echo "   (This may take a few minutes to complete)"
+
 echo "✅ Deployment completed successfully!"
 echo "🔗 Your website should be available at: http://$BUCKET_NAME.s3-website-$(aws configure get region).amazonaws.com"
 echo "🔗 Or if using custom domain: https://chirawat.info"
