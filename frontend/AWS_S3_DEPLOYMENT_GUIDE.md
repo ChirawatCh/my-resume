@@ -1,12 +1,20 @@
-# AWS S3 Deployment Guide for Next.js Resume
+# AWS S3 + CloudFront Deployment Guide
 
-This guide will walk you through deploying your Next.js resume application to AWS S3 as a static website with CloudFront CDN for optimal performance.
+This guide covers deploying the Next.js resume application to AWS S3 with CloudFront CDN for optimal performance and global distribution.
+
+## Current Production Infrastructure
+
+- **S3 Bucket:** `chirawat.info.nextjs` (region: ap-southeast-7)
+- **CloudFront Distribution ID:** `E3JUX6LFH6K47F`
+- **CloudFront Domain:** `d253sa7khuajeg.cloudfront.net`
+- **Custom Domain:** `https://chirawat.info`
+- **Deployment Script:** `deploy-to-s3.sh` (automated deployment + cache invalidation)
 
 ## Prerequisites
 
-- AWS Account
+- AWS Account with appropriate permissions
 - AWS CLI installed and configured
-- Node.js and npm installed
+- Node.js 18+ and npm installed
 - Your Next.js application configured for static export
 
 ## Step 1: Configure Next.js for Static Export
@@ -167,43 +175,163 @@ aws acm request-certificate --domain-name your-domain.com --validation-method DN
    - Add CNAME record pointing your domain to CloudFront distribution domain
    - Add validation records for SSL certificate
 
-## Step 7: Automation Script
+## Quick Deployment (Recommended)
 
-Create a deployment script `deploy.sh`:
+### Using the Automated Script
+
+The project includes a ready-to-use `deploy-to-s3.sh` script:
+
 ```bash
-#!/bin/bash
-
-# Build the application
-echo "Building Next.js application..."
+# 1. Build the application
 npm run build
 
-# Upload to S3
-echo "Uploading to S3..."
-aws s3 sync out/ s3://your-resume-website-bucket-name --delete
+# 2. Deploy to S3 and invalidate CloudFront cache
+./deploy-to-s3.sh
+```
 
-# Set content types
-echo "Setting content types..."
-aws s3 cp s3://your-resume-website-bucket-name s3://your-resume-website-bucket-name --recursive --exclude "*" --include "*.css" --content-type "text/css" --metadata-directive REPLACE
+### What the Script Does
 
-aws s3 cp s3://your-resume-website-bucket-name s3://your-resume-website-bucket-name --recursive --exclude "*" --include "*.js" --content-type "application/javascript" --metadata-directive REPLACE
+The `deploy-to-s3.sh` script automatically handles:
+
+1. **Validates Prerequisites**
+   - Checks AWS CLI is configured
+   - Verifies build directory exists
+
+2. **Uploads Static Assets**
+   - Syncs files to S3 bucket `chirawat.info.nextjs`
+   - Sets cache-control: `public, max-age=31536000` (1 year) for assets
+   - Deletes removed files with `--delete` flag
+
+3. **Uploads HTML Files**
+   - Sets cache-control: `no-cache` for HTML files
+   - Ensures fresh content on every visit
+
+4. **Configures S3 Website Hosting**
+   - Sets index document to `index.html`
+   - Sets error document to `404.html`
+
+5. **Invalidates CloudFront Cache**
+   - Creates invalidation for distribution `E3JUX6LFH6K47F`
+   - Clears all paths (`/*`)
+   - Takes 2-5 minutes to propagate globally
+
+### Script Contents
+
+```bash
+#!/bin/bash
+set -e
+
+BUCKET_NAME="chirawat.info.nextjs"
+BUILD_DIR="out"
+DISTRIBUTION_ID="E3JUX6LFH6K47F"
+
+echo "🚀 Starting deployment to S3 bucket: $BUCKET_NAME"
+
+# Check AWS CLI configuration
+if ! aws sts get-caller-identity > /dev/null 2>&1; then
+    echo "❌ AWS CLI is not configured. Please run 'aws configure' first."
+    exit 1
+fi
+
+# Check build directory
+if [ ! -d "$BUILD_DIR" ]; then
+    echo "❌ Build directory '$BUILD_DIR' not found. Please run 'npm run build' first."
+    exit 1
+fi
+
+# Upload static assets with 1-year cache
+aws s3 sync $BUILD_DIR/ s3://$BUCKET_NAME --delete \
+    --cache-control "public, max-age=31536000" \
+    --exclude "*.html" \
+    --exclude "*.txt"
+
+# Upload HTML files with no-cache
+aws s3 sync $BUILD_DIR/ s3://$BUCKET_NAME --delete \
+    --cache-control "no-cache" \
+    --include "*.html" \
+    --include "*.txt"
+
+# Configure website hosting
+aws s3 website s3://$BUCKET_NAME \
+    --index-document index.html \
+    --error-document 404.html
 
 # Invalidate CloudFront cache
-echo "Invalidating CloudFront cache..."
-aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
+INVALIDATION_ID=$(aws cloudfront create-invalidation \
+    --distribution-id $DISTRIBUTION_ID \
+    --paths "/*" \
+    --query 'Invalidation.Id' \
+    --output text)
 
-echo "Deployment complete!"
+echo "✅ Deployment completed successfully!"
+echo "⏳ CloudFront invalidation: $INVALIDATION_ID (2-5 minutes)"
+echo "🔗 Your website: https://chirawat.info"
 ```
 
-Make it executable:
+Make the script executable:
 ```bash
-chmod +x deploy.sh
+chmod +x deploy-to-s3.sh
 ```
 
-## Step 8: Environment Variables
+## Manual Deployment Steps
 
-For your chatbot API endpoint, ensure you're using the correct production URL in your Next.js app.
+If you prefer to deploy manually without the script:
 
-## Step 9: Continuous Deployment (Optional)
+### Step 1: Build the Application
+```bash
+npm run build
+```
+
+### Step 2: Upload to S3
+```bash
+# Upload with appropriate cache headers
+aws s3 sync out/ s3://chirawat.info.nextjs --delete \
+    --cache-control "public, max-age=31536000" \
+    --exclude "*.html" --exclude "*.txt"
+
+aws s3 sync out/ s3://chirawat.info.nextjs --delete \
+    --cache-control "no-cache" \
+    --include "*.html" --include "*.txt"
+```
+
+### Step 3: Configure S3 Website Hosting
+```bash
+aws s3 website s3://chirawat.info.nextjs \
+    --index-document index.html \
+    --error-document 404.html
+```
+
+### Step 4: Invalidate CloudFront Cache
+```bash
+aws cloudfront create-invalidation \
+    --distribution-id E3JUX6LFH6K47F \
+    --paths "/*"
+```
+
+## Monitoring Deployment
+
+### Check CloudFront Invalidation Status
+```bash
+aws cloudfront get-invalidation \
+    --distribution-id E3JUX6LFH6K47F \
+    --id YOUR_INVALIDATION_ID
+```
+
+### Check S3 Bucket Contents
+```bash
+aws s3 ls s3://chirawat.info.nextjs --recursive
+```
+
+### Test Website
+```bash
+# Test CloudFront distribution
+curl -I https://d253sa7khuajeg.cloudfront.net
+
+# Test custom domain
+curl -I https://chirawat.info
+```
+
+## Continuous Deployment with GitHub Actions (Optional)
 
 Set up GitHub Actions for automatic deployment:
 
@@ -242,8 +370,15 @@ jobs:
         
     - name: Deploy to S3
       run: |
-        aws s3 sync out/ s3://your-resume-website-bucket-name --delete
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+        aws s3 sync out/ s3://chirawat.info.nextjs --delete \
+          --cache-control "public, max-age=31536000" \
+          --exclude "*.html" --exclude "*.txt"
+        aws s3 sync out/ s3://chirawat.info.nextjs --delete \
+          --cache-control "no-cache" \
+          --include "*.html" --include "*.txt"
+        aws cloudfront create-invalidation \
+          --distribution-id E3JUX6LFH6K47F \
+          --paths "/*"
 ```
 
 ## Troubleshooting
@@ -280,7 +415,39 @@ jobs:
 3. Use CloudFront edge locations for global performance
 4. Optimize images before deployment
 
-Your resume website will be accessible at:
-- S3 Website URL: `http://your-resume-website-bucket-name.s3-website-region.amazonaws.com`
-- CloudFront URL: `https://your-distribution-id.cloudfront.net`
-- Custom Domain: `https://your-domain.com` (if configured)
+## Access URLs
+
+Your resume website is accessible at:
+- **Primary (Custom Domain):** https://chirawat.info
+- **CloudFront Distribution:** https://d253sa7khuajeg.cloudfront.net
+- **S3 Website URL:** http://chirawat.info.nextjs.s3-website-ap-southeast-7.amazonaws.com
+
+## Quick Reference
+
+### Common Commands
+
+```bash
+# Build the application
+npm run build
+
+# Deploy (automated)
+./deploy-to-s3.sh
+
+# Check CloudFront status
+aws cloudfront get-distribution --id E3JUX6LFH6K47F
+
+# List invalidations
+aws cloudfront list-invalidations --distribution-id E3JUX6LFH6K47F
+
+# Check S3 bucket
+aws s3 ls s3://chirawat.info.nextjs
+```
+
+### Infrastructure Details
+
+- **S3 Bucket:** `chirawat.info.nextjs`
+- **S3 Region:** ap-southeast-7
+- **CloudFront Distribution:** E3JUX6LFH6K47F
+- **CloudFront Domain:** d253sa7khuajeg.cloudfront.net
+- **Custom Domain:** chirawat.info
+- **SSL Certificate:** Managed by AWS Certificate Manager

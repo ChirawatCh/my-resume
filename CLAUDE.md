@@ -105,23 +105,67 @@ aws lambda update-function-configuration \
 
 ## Deployment
 
-### Frontend Deployment to AWS S3
+### AWS Infrastructure
+- **S3 Bucket:** `chirawat.info.nextjs` (region: ap-southeast-7)
+- **CloudFront Distribution ID:** `E3JUX6LFH6K47F`
+- **CloudFront Domain:** `d253sa7khuajeg.cloudfront.net`
+- **Custom Domain:** `https://chirawat.info`
+- **Lambda Function:** `groqApiProxy` (region: ap-southeast-1)
+- **Lambda Endpoint:** `https://puf76fk3fk.execute-api.ap-southeast-1.amazonaws.com/prod/chat`
+
+### Frontend Deployment to AWS S3 + CloudFront
+
+**Automated Deployment (Recommended):**
+```bash
+cd frontend
+npm run build           # Build static files
+./deploy-to-s3.sh      # Deploy to S3 + invalidate CloudFront
+```
+
+The `deploy-to-s3.sh` script automatically:
+- ✅ Uploads built files from `out/` to S3 bucket `chirawat.info.nextjs`
+- ✅ Sets cache-control headers (1 year for assets, no-cache for HTML)
+- ✅ Configures S3 static website hosting
+- ✅ Invalidates CloudFront cache (distribution: `E3JUX6LFH6K47F`)
+- ✅ Takes 2-5 minutes for CloudFront to propagate changes
+
+**Manual Deployment:**
 1. Build: `npm run build` (creates `out/` directory)
-2. Upload `out/` contents to S3 bucket
-3. Enable static website hosting
-4. Set bucket policy for public read access
+2. Upload to S3: `aws s3 sync out/ s3://chirawat.info.nextjs --delete`
+3. Invalidate CloudFront: `aws cloudfront create-invalidation --distribution-id E3JUX6LFH6K47F --paths "/*"`
+
+### Backend Deployment to AWS Lambda
+
+**Automated Deployment:**
+```bash
+cd backend
+./deploy-lambda.sh      # Deploy Lambda function
+./set-env-vars.sh      # Set GROQ_API_KEY environment variable
+```
+
+The `deploy-lambda.sh` script handles:
+- ✅ IAM role creation (`lambda-groq-execution-role`)
+- ✅ Lambda function creation/update (`groqApiProxy`)
+- ✅ Function URL configuration with CORS
+- ✅ Node.js 20.x runtime setup
+- ✅ Packaging code with dependencies
+
+**Important:** Set `GROQ_API_KEY` environment variable:
+```bash
+# Edit backend/.env file with your API key, then run:
+./set-env-vars.sh
+
+# Or manually:
+aws lambda update-function-configuration \
+  --function-name groqApiProxy \
+  --environment Variables='{GROQ_API_KEY=your_key}' \
+  --region ap-southeast-1
+```
 
 ### Alternative Frontend Deployments
 - **Vercel:** Recommended for Next.js (auto-detects framework)
 - **Netlify:** Static site + serverless functions
 - **AWS Amplify:** Full-stack with CI/CD
-
-### Backend Deployment
-Use `backend/deploy-lambda.sh` which handles:
-- IAM role creation (`lambda-groq-execution-role`)
-- Lambda function creation/update
-- Function URL configuration
-- CORS setup
 
 ## Important Notes
 

@@ -2,6 +2,18 @@
 
 This guide provides step-by-step instructions for deploying your backend Lambda function to AWS.
 
+## Current Production Infrastructure
+
+- **Lambda Function Name:** `groqApiProxy`
+- **AWS Region:** `ap-southeast-1` (Singapore)
+- **Runtime:** Node.js 20.x
+- **Handler:** `index.handler`
+- **Timeout:** 30 seconds
+- **Memory:** 256 MB
+- **IAM Role:** `lambda-groq-execution-role`
+- **Deployment Script:** `deploy-lambda.sh` (automated deployment)
+- **Environment Variables:** `GROQ_API_KEY` (set via `set-env-vars.sh`)
+
 ## Prerequisites
 
 1. **AWS CLI installed and configured**
@@ -181,3 +193,68 @@ For production deployment, consider:
 - **Monitoring**: Set up CloudWatch alarms
 - **Environment**: Use separate dev/staging/prod functions
 - **Secrets**: Use AWS Secrets Manager for sensitive data
+
+## Quick Reference
+
+### Common Commands
+
+```bash
+# Deploy Lambda function
+./deploy-lambda.sh
+
+# Set environment variables
+./set-env-vars.sh
+
+# Check function status
+aws lambda get-function \
+    --function-name groqApiProxy \
+    --region ap-southeast-1
+
+# Get function URL
+aws lambda get-function-url-config \
+    --function-name groqApiProxy \
+    --region ap-southeast-1
+
+# View logs
+aws logs tail /aws/lambda/groqApiProxy \
+    --follow \
+    --region ap-southeast-1
+
+# Update environment variables manually
+aws lambda update-function-configuration \
+    --function-name groqApiProxy \
+    --environment Variables='{GROQ_API_KEY=your_key}' \
+    --region ap-southeast-1
+
+# Test function
+aws lambda invoke \
+    --function-name groqApiProxy \
+    --payload '{"body":"{\"message\":\"test\"}"}' \
+    --region ap-southeast-1 \
+    response.json
+```
+
+### Infrastructure Details
+
+- **Function Name:** groqApiProxy
+- **Region:** ap-southeast-1
+- **Runtime:** nodejs20.x
+- **Handler:** index.handler
+- **Timeout:** 30 seconds
+- **Memory:** 256 MB
+- **IAM Role:** lambda-groq-execution-role
+- **Environment Variables:** GROQ_API_KEY
+- **LLM Model:** qwen/qwen3-32b (via Groq)
+- **Temperature:** 0.7
+- **Max Tokens:** 1024
+
+### Files in Backend Directory
+
+- `index.mjs` - Lambda handler code
+- `resumeContent.txt` - Resume content for LLM context
+- `package.json` - Node.js dependencies
+- `deploy-lambda.sh` - Automated deployment script
+- `set-env-vars.sh` - Environment variables setup script
+- `.env.example` - Environment variables template
+- `API-test.html` - Test interface for the API
+- `LAMBDA_DEPLOYMENT_GUIDE.md` - This guide
